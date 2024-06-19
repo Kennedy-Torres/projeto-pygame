@@ -1,4 +1,5 @@
 import pygame
+from assets.configs.config import ALVO
 
 class Alvo(pygame.sprite.Sprite):
     def __init__(self, pos_x, pos_y):
