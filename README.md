@@ -1,4 +1,4 @@
-# Projeto : Desenvolvimento de um tiro ao alvo utilizando pygame com orientação objetos.
+# Projeto : Desenvolvimento de um jogo de tiro ao alvo utilizando pygame com orientação objetos.
 
 ## Como rodar o projeto?
 1. É necessário ter o python instalado.
