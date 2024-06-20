@@ -19,10 +19,14 @@ class Mira(pygame.sprite.Sprite):
         self.sound.play()
         
         colisions = pygame.sprite.spritecollide(self, grupo_de_alvos, False)
-        for colision in colisions:
+        if colisions:
             self.pontuacao.adicionar_ponto()
-            
-            colision.kill()
-            while len(grupo_de_alvos) < 6:  # Garante que sempre haja 6 alvos na tela
-                novo_alvo = Alvo(random.randrange(0, LARGURA), random.randrange(0, ALTURA)) #só pode desenhar em grupos (conjunto)
-                grupo_de_alvos.add(novo_alvo)
+            for colision in colisions:
+                colision.kill()
+                
+                while len(grupo_de_alvos) < 6:  # Garante que sempre haja 6 alvos na tela
+                    novo_alvo = Alvo(random.randrange(0, LARGURA), random.randrange(0, ALTURA)) #só pode desenhar em grupos (conjunto)
+                    grupo_de_alvos.add(novo_alvo)
+            return True # Retorna True para um clique correto 
+        return False  # Retorna False para um clique incorreto
+        
