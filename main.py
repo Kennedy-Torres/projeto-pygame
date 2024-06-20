@@ -77,11 +77,12 @@ def mini_game():
                     
                 # se acertar o alvo incrementa tempo extra no tempo total, se errar decrementa
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    hit_target = mira.shoot(grupo_de_alvos)
-                    if hit_target:
-                        TIMER += 30  # Adiciona 0.5 segundos ao TIMER (0.5s * 60 frames)
-                    else:
-                        TIMER -= 30  # Remove 0.5 segundos do TIMER (0.5s * 60 frames)
+                    if event.button == 1:  # Apenas botão esquerdo do mouse
+                        hit_target = mira.shoot(grupo_de_alvos)
+                        if hit_target:
+                            TIMER += 30  # Adiciona 0.5 segundos ao TIMER (0.5s * 60 frames)
+                        else:
+                            TIMER -= 30  # Remove 0.5 segundos do TIMER (0.5s * 60 frames)
                     
             screen.blit(bg, (0,0))
             grupo_de_alvos.draw(screen)
