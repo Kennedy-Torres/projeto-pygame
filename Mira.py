@@ -8,13 +8,14 @@ class Mira(pygame.sprite.Sprite):
         super().__init__()
         self.image = pygame.image.load(MIRA).convert_alpha()
         self.image = pygame.transform.scale(self.image, (50,50))
-        self.rect = self.image.get_rect()
+        self.rect = self.image.get_rect() # O retângulo delimitador da mira.
         self.sound = pygame.mixer.Sound(DISPARO)
         self.pontuacao = pontuacao
     
     def update(self):   #predefinido pela Sprite
         self.rect.center = pygame.mouse.get_pos()
     
+    # Retorna um booleano indicando se o tiro acertou um alvo.
     def shoot(self, grupo_de_alvos):
         self.sound.play()
         
